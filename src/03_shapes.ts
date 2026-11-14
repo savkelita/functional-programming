@@ -1,6 +1,6 @@
 // run `npm run shapes` to execute
 /*
-  PROBLEMA: implementare un sistema per disegnare forme geometriche sul canvas.
+  PROBLEM: implementirati sistem za crtanje geometrijskih oblika na canvas-u.
 */
 import { pipe } from 'fp-ts/function'
 import { Monoid, concatAll } from 'fp-ts/Monoid'
@@ -15,8 +15,8 @@ export interface Point {
 }
 
 /**
- * Una forma è una funzione che dato un punto
- * restituisce `true` se il punto appartiene alla forma e `false` altrimenti
+ * Oblik je funkcija koja za datu tačku
+ * vraća `true` ako tačka pripada obliku, a `false` u suprotnom
  *
  * > Sometimes, the elegant implementation is just a function. Not a method. Not a class. Not a framework. Just a function.
  * > - John Carmack
@@ -46,12 +46,12 @@ export type Shape = (point: Point) => boolean
 // -------------------------------------------------------------------------------------
 
 /**
- * Crea una forma che rappresenta un cerchio
+ * Pravi oblik koji predstavlja krug
  */
 export const disk = (center: Point, radius: number): Shape => (point) =>
   distance(point, center) <= radius
 
-// distanza euclidea
+// euklidsko rastojanje
 const distance = (p1: Point, p2: Point) =>
   Math.sqrt(
     Math.pow(Math.abs(p1.x - p2.x), 2) + Math.pow(Math.abs(p1.y - p2.y), 2)
@@ -64,8 +64,8 @@ const distance = (p1: Point, p2: Point) =>
 // -------------------------------------------------------------------------------------
 
 /**
- * Possiamo definire un primo combinatore che data una forma
- * restituisce la sua forma complementare (il negativo)
+ * Možemo da definišemo prvi kombinator koji za dati oblik
+ * vraća njegov komplementarni oblik (negativ)
  */
 export const outside = (s: Shape): Shape => (point) => !s(point)
 
@@ -76,7 +76,7 @@ export const outside = (s: Shape): Shape => (point) => !s(point)
 // -------------------------------------------------------------------------------------
 
 /**
- * Un monoide in cui `concat` rappresenta l'unione di due forme
+ * Monoid u kome `concat` predstavlja uniju dva oblika
  */
 export const MonoidUnion: Monoid<Shape> = {
   concat: (first, second) => (point) => first(point) || second(point),
@@ -92,7 +92,7 @@ export const MonoidUnion: Monoid<Shape> = {
 // )
 
 /**
- * Un monoide in cui `concat` rappresenta l'intersezione di due forme
+ * Monoid u kome `concat` predstavlja presek dva oblika
  */
 const MonoidIntersection: Monoid<Shape> = {
   concat: (first, second) => (point) => first(point) && second(point),
@@ -108,8 +108,8 @@ const MonoidIntersection: Monoid<Shape> = {
 // )
 
 /**
- * Usando il combinatore `outside` e `MonoidIntersection` possiamo
- * creare una forma che rappresenta un anello
+ * Koristeći kombinator `outside` i `MonoidIntersection` možemo
+ * da napravimo oblik koji predstavlja prsten
  */
 export const ring = (
   point: Point,

@@ -1,5 +1,5 @@
 /**
- * Definire un semigruppo per i predicati su `Point`
+ * Definisati polugrupu za predikate nad `Point`
  */
 import { pipe, Predicate, getSemigroup } from 'fp-ts/function'
 import { Semigroup } from 'fp-ts/Semigroup'
@@ -21,7 +21,7 @@ const S: Semigroup<Predicate<Point>> = getSemigroup(B.SemigroupAll)<Point>()
 
 import * as assert from 'assert'
 
-// restituisce `true` se il punto appartiene al primo quadrante, ovvero se ambedue le sue `x` e `y` sono positive
+// vraća `true` ako tačka pripada prvom kvadrantu, odnosno ako su i njena `x` i njena `y` koordinata pozitivne
 const isPositiveXY = S.concat(isPositiveX, isPositiveY)
 
 assert.deepStrictEqual(isPositiveXY({ x: 1, y: 1 }), true)

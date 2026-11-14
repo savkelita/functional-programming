@@ -1,5 +1,5 @@
 /**
- * Definire l'istanza di `Monad` per `Either<E, A>`
+ * Definisati instancu `Monad` za `Either<E, A>`
  */
 import { Monad2 } from 'fp-ts/Monad'
 import * as E from 'fp-ts/Either'

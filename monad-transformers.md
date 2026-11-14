@@ -1,8 +1,8 @@
-# Monad transformers
+# Monad transformeri
 
 **Scenario 1**
 
-Supponiamo di avere definto le seguenti API:
+Pretpostavimo da smo definisali sledeće API-je:
 
 ```ts
 import { head } from 'fp-ts/lib/Array'
@@ -26,58 +26,58 @@ function fetchFirstComment(
 }
 ```
 
-Il tipo del codominio della funzione `fetchFirstComment` è `Task<Option<string>>` ovvero una struttura dati innestata.
+Tip kodomena funkcije `fetchFirstComment` je `Task<Option<string>>`, odnosno ugnežđena struktura podataka.
 
-È possibile associare una istanza di monade?
+Da li mu je moguće pridružiti instancu monade?
 
-**Senario 2**
+**Scenario 2**
 
-Per modellare una chiamata AJAX, il type constructor `Task` non è sufficiente dato che rappresenta una computazione
-asincrona che non può mai fallire, come possiamo modellare anche i possibili errori restituiti dalla chiamata (`403`, `500`, etc...)?
+Za modelovanje AJAX poziva konstruktor tipa `Task` nije dovoljan, jer predstavlja asinhrono
+izračunavanje koje nikada ne može da se završi neuspehom. Kako onda da modelujemo i moguće greške koje poziv vraća (`403`, `500`, itd.)?
 
-Più in generale supponiamo di avere una computazione con le seguenti proprietà:
+Uopštenije, pretpostavimo da imamo izračunavanje sa sledećim svojstvima:
 
-- asincrona
-- può fallire
+- asinhrono je
+- može da se završi neuspehom
 
-Come possiamo modellarla?
+Kako da ga modelujemo?
 
-Sappiamo che questi due effetti possono essere rispettivamente codificati dai seguenti tipi:
+Znamo da se ova dva efekta mogu kodirati, redom, sledećim tipovima:
 
-- `Task<A>` (asincronicità)
-- `Either<E, A>` (possibile fallimento)
+- `Task<A>` (asinhronost)
+- `Either<E, A>` (mogući neuspeh)
 
-e che ambedue hanno una istanza di monade.
+i da oba imaju instancu monade.
 
-Come posso combinare questi due effetti?
+Kako mogu da kombinujem ova dva efekta?
 
-In due modi:
+Na dva načina:
 
-- `Task<Either<L, A>>` rappresenta una computazione asincrona che può fallire
-- `Either<L, Task<A>>` rappresenta una computazione che può fallire oppure che restituisce una computazione asincrona
+- `Task<Either<L, A>>` predstavlja asinhrono izračunavanje koje može da se završi neuspehom
+- `Either<L, Task<A>>` predstavlja izračunavanje koje može da se završi neuspehom ili da vrati asinhrono izračunavanje
 
-Diciamo che sono interessato al primo dei due modi:
+Recimo da me zanima prvi od ta dva načina:
 
 ```ts
 interface TaskEither<L, A> extends Task<Either<L, A>> {}
 ```
 
-È possibile definire una istanza di monade per `TaskEither`?
+Da li je moguće definisati instancu monade za `TaskEither`?
 
-## Le monadi non compongono
+## Monade se ne komponuju
 
-In generale le monadi non compongono, ovvero date due istanze di monade, una per `M<A>` e una per `N<A>`,
-allora non è detto che `M<N<A>>` ammetta ancora una istanza di monade.
+Uopšteno, monade se ne komponuju, odnosno ako su date dve instance monade, jedna za `M<A>` i jedna za `N<A>`,
+nije zagarantovano da i `M<N<A>>` ima instancu monade.
 
-**Quiz**. Perchè? Provare a definire la funzione `flatten`.
+**Kviz**. Zašto? Pokušajte da definišete funkciju `flatten`.
 
-Che non compongano in generale però non vuol dire che non esistano dei casi particolari ove questo succede.
+Ipak, to što se u opštem slučaju ne komponuju ne znači da ne postoje posebni slučajevi u kojima se to dešava.
 
-Vediamo qualche esempio, se `M` ammette una istanza di monade allora ammettono una istanza di monade i seguenti tipi:
+Pogledajmo nekoliko primera: ako `M` ima instancu monade, onda instancu monade imaju i sledeći tipovi:
 
 - `OptionT<M, A> = M<Option<A>>`
 - `EitherT<M, L, A> = M<Either<L, A>>`
 
-Più in generale i **monad transformer** sono un elenco di "ricette" specifiche che mostrano come a `M<N<A>>` può essere associata una istanza di monade quando `M` e `N` ammettono una istanza di monade.
+Uopštenije, **monad transformeri** su skup konkretnih "recepata" koji pokazuju kako se tipu `M<N<A>>` može pridružiti instanca monade kada `M` i `N` imaju instance monade.
 
-Per operare comodamente abbiamo bisogno di operazioni che permettono di immergere le computazioni che girano nelle monadi costituenti la monade target: le _lifting_ functions.
+Da bismo mogli udobno da radimo, potrebne su nam operacije koje omogućavaju da izračunavanja koja se izvršavaju u sastavnim monadama "uronimo" u ciljnu monadu: to su _lifting_ funkcije.

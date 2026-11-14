@@ -1,5 +1,5 @@
 /**
- * Implementare le seguenti funzioni
+ * Implementirati sledeće funkcije
  */
 import { pipe } from 'fp-ts/function'
 import { IO, map } from 'fp-ts/IO'

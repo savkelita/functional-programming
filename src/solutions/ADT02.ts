@@ -1,5 +1,5 @@
 /**
- * Modellare il punteggio di un game di tennis
+ * Modelovati rezultat jednog gema u tenisu
  */
 
 // ------------------------------------
@@ -26,7 +26,7 @@ const deuce: Game = { _tag: 'Deuce' }
 const game = (player: Player): Game => ({ _tag: 'Game', player })
 
 /**
- * Punteggio di partenza
+ * Početni rezultat
  */
 const start: Game = {
   _tag: 'Score',
@@ -72,7 +72,7 @@ const next = (score: Score): O.Option<Score> => {
 }
 
 /**
- * Dato un punteggio e un giocatore che si è aggiudicato il punto restituisce il nuovo punteggio
+ * Za dati rezultat i igrača koji je osvojio poen vraća novi rezultat
  */
 const win = (player: Player): ((game: Game) => Game) =>
   fold(
@@ -90,7 +90,7 @@ const win = (player: Player): ((game: Game) => Game) =>
   )
 
 /**
- * Restituisce il punteggio in formato leggibile
+ * Vraća rezultat u čitljivom obliku
  */
 const show: (game: Game) => string = fold(
   (A, B) => `${A} - ${B === A ? 'all' : B}`,

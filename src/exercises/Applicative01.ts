@@ -1,5 +1,5 @@
 /**
- * E' possibile derivare una istanza di `Monoid` da una istanza di `Applicative`?
+ * Da li je moguće izvesti instancu `Monoid` iz instance `Applicative`?
  */
 import { Monoid } from 'fp-ts/Monoid'
 import * as S from 'fp-ts/string'

@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Semigroup` per `Option`
+ * Definisati instancu `Semigroup` za `Option`
  */
 import { Semigroup } from 'fp-ts/Semigroup'
 import * as S from 'fp-ts/string'

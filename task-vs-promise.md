@@ -1,18 +1,18 @@
-# `Task` versus `Promise`
+# `Task` naspram `Promise`
 
-`Task` è una astrazione simile a `Promise`, la differenza chiave è che `Task` rappresenta una computazione asincrona
-mentre `Promise` rappresenta solo un risultato (ottenuto in maniera asincrona).
+`Task` je apstrakcija slična `Promise`-u; ključna razlika je u tome što `Task` predstavlja asinhrono izračunavanje
+dok `Promise` predstavlja samo rezultat (dobijen asinhrono).
 
-Se abbiamo un `Task`
+Ako imamo `Task`
 
-- possiamo far partire la computazione che rappresenta (per esempio una richiesta network)
-- possiamo scegliere di non far partire la computazione
-- possiamo farlo partire più di una volta (e potenzialmente ottenere risultati diversi)
-- mentre la computazione si sta svolgendo, possiamo notificargli che non siamo più interessati al risultato e la computazione può scegliere di terminarsi da sola
-- quando la computazione finisce otteniamo il risultato
+- možemo da pokrenemo izračunavanje koje on predstavlja (na primer mrežni zahtev)
+- možemo da odlučimo da izračunavanje ne pokrenemo
+- možemo da ga pokrenemo više puta (i potencijalno dobijemo različite rezultate)
+- dok se izračunavanje odvija, možemo da ga obavestimo da nas rezultat više ne zanima, a izračunavanje može samo da odluči da se prekine
+- kada se izračunavanje završi, dobijamo rezultat
 
-Se abbiamo una `Promise`
+Ako imamo `Promise`
 
-- la computazione si sta già svolgendo (o è addirittura già finita) e non abbiamo controllo su questo
-- quando è disponible otteniamo il risultato
-- due consumatori della stessa `Promise` ottengono lo stesso risultato
+- izračunavanje se već odvija (ili se čak već završilo) i nad tim nemamo kontrolu
+- kada je rezultat dostupan, dobijamo ga
+- dva korisnika istog `Promise`-a dobijaju isti rezultat

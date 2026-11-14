@@ -1,5 +1,5 @@
 /**
- * Definire l'istanza di `Monad` per `type TaskEither<E, A> = Task<Either<E, A>>`
+ * Definisati instancu `Monad` za `type TaskEither<E, A> = Task<Either<E, A>>`
  */
 import * as T from 'fp-ts/Task'
 import * as E from 'fp-ts/Either'

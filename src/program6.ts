@@ -3,7 +3,7 @@ import * as TE from 'fp-ts/TaskEither'
 import * as RTE from 'fp-ts/ReaderTaskEither'
 
 // -----------------------------------------
-// effetto del nostro programma
+// efekat našeg programa
 // -----------------------------------------
 
 interface Effect<R, A> extends RTE.ReaderTaskEither<R, Error, A> {}
@@ -45,7 +45,7 @@ interface Logger {
 const log = <A>(a: A) => asksEffectW((r: Logger) => r.log(a))
 
 // -----------------------------------------
-// programma
+// program
 // -----------------------------------------
 
 const modifyFile = (filename: string, f: (s: string) => string) =>
@@ -63,7 +63,7 @@ const program6 = pipe(
 )
 
 // -----------------------------------------
-// istanze per ReadFile, Console, WriteFile
+// instance za ReadFile, Console, WriteFile
 // -----------------------------------------
 
 import * as fs from 'fs'

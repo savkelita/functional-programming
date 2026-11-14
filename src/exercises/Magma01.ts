@@ -1,5 +1,5 @@
 /**
- * Implementare la funzione `fromReadonlyArray`
+ * Implementirati funkciju `fromReadonlyArray`
  */
 import { Magma } from 'fp-ts/Magma'
 
@@ -17,12 +17,12 @@ const magmaSum: Magma<number> = {
   concat: (first, second) => first + second
 }
 
-// una istanza di Magma che semplicemente ignora il primo argomento
+// instanca Magma koja jednostavno ignoriše prvi argument
 const lastMagma: Magma<number> = {
   concat: (_first, second) => second
 }
 
-// una istanza di Magma che semplicemente ignora il secondo argomento
+// instanca Magma koja jednostavno ignoriše drugi argument
 const firstMagma: Magma<number> = {
   concat: (first, _second) => first
 }

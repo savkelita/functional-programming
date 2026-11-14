@@ -1,6 +1,6 @@
 /**
- * Modellare un albero binario completo, il/i costruttore/i, la funzione di pattern matching
- * e una funzione che converte l'albero in un `ReadonlyArray`
+ * Modelovati potpuno binarno stablo, njegov konstruktor/konstruktore, funkciju za pattern matching
+ * i funkciju koja pretvara stablo u `ReadonlyArray`
  */
 export type BinaryTree<A> =
   | { readonly _tag: 'Leaf'; readonly value: A }

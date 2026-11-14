@@ -2,11 +2,11 @@
 
   Abstraction for a mechanism to perform actions repetitively until successful.
 
-  Questo modulo è diviso in 3 sezioni
+  Ovaj modul je podeljen na 3 sekcije
 
-  - modello
+  - model
   - primitive
-  - combinatori
+  - kombinatori
 
 */
 
@@ -75,7 +75,7 @@ export const capDelay = (maxDelay: number) => (
 }
 
 /**
- * Merges two policies. **Quiz**: cosa vuol dire fare merge di due policy?
+ * Merges two policies. **Kviz**: šta znači spojiti (merge) dve politike (policy)?
  */
 export const concat = (second: RetryPolicy) => (
   first: RetryPolicy

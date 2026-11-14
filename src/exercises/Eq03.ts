@@ -1,7 +1,7 @@
 /**
- * Modellare un orologio (minuti e ore)
+ * Modelovati sat (minuti i sati)
  *
- * Per completare l'esercizio occorre definire il tipo `Clock`, una sia istanza di `Eq`
+ * Da biste završili vežbu, treba da definišete tip `Clock` i njegovu instancu `Eq`
  */
 import { Eq } from 'fp-ts/Eq'
 

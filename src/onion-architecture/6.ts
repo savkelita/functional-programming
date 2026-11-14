@@ -1,6 +1,6 @@
 /*
 
-  E se volessimo far girare il programma in un qualsiasi contesto monadico?
+  A šta ako želimo da program pokrenemo u bilo kom monadskom kontekstu?
 
 */
 

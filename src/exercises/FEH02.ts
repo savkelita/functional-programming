@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Monoid` per `Option`
+ * Definisati instancu `Monoid` za `Option`
  */
 import { Semigroup } from 'fp-ts/Semigroup'
 import * as O from 'fp-ts/Option'

@@ -1,8 +1,8 @@
 /*
 
-  Adattato da https://github.com/matteobaglini/onion-with-functional-programming
+  Prilagođeno sa https://github.com/matteobaglini/onion-with-functional-programming
 
-  Porting dell'originale in TypeScript
+  Port originala na TypeScript
 
 */
 

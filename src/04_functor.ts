@@ -58,7 +58,7 @@ export const threshold = (c: Color): Color =>
 // main
 // -------------------------------------------------------------------------------------
 
-// `main` deve essere chiamata passando una funzione di trasformazione, cioè un `Endomorphism<Image<RGB>>`
+// `main` se poziva tako što joj se prosledi funkcija transformacije, odnosno `Endomorphism<Image<RGB>>`
 main(R.map((c: Color) => c))
 // main(R.map(grayscale))
 // main(R.map(invert))

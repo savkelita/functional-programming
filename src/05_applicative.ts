@@ -1,6 +1,6 @@
 /*
 
-  Modellare il lancio di dadi di un gioco di ruolo.
+  Modelovati bacanje kockica u igri uloga.
 
 */
 import { pipe } from 'fp-ts/function'

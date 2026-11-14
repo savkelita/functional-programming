@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Semigroup` per `Option`
+ * Definisati instancu `Semigroup` za `Option`
  */
 import { Semigroup } from 'fp-ts/Semigroup'
 import { Option, some, none, isSome } from 'fp-ts/Option'

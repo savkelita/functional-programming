@@ -1,5 +1,5 @@
 /**
- * Convertire la funzione `parseJSON` in stile funzionale usando l'implementazione di `Either` in `fp-ts`
+ * Prepisati funkciju `parseJSON` u funkcionalnom stilu koristeći implementaciju `Either` iz `fp-ts`
  */
 import { right, left, Either } from 'fp-ts/Either'
 import { Json } from 'fp-ts/Json'

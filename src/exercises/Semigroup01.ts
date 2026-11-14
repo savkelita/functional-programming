@@ -1,5 +1,5 @@
 /**
- * Implementare la funzione `concatAll`
+ * Implementirati funkciju `concatAll`
  */
 import { Semigroup } from 'fp-ts/Semigroup'
 import * as N from 'fp-ts/number'

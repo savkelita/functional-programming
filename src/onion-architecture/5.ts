@@ -1,6 +1,6 @@
 /*
 
-  E se volessimo far girare il programma in un contesto asincrono?
+  A šta ako želimo da program pokrenemo u asinhronom kontekstu?
 
 */
 

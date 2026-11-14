@@ -1,5 +1,5 @@
 /**
- * Convertire il seguente codice in stile funzionale
+ * Prepisati sledeći kod u funkcionalnom stilu
  */
 
 interface User {

@@ -1,6 +1,6 @@
 /*
 
-  Primo refactoring: estrarre le funzioni
+  Prvo refaktorisanje: izdvajanje funkcija
 
 */
 

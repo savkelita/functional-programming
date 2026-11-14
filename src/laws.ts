@@ -5,7 +5,7 @@ import * as fc from 'fast-check'
 // laws
 // -------------------------------------------------------------------------------------
 
-// prima di tutto ho codificato la proprietà associativa come una funzione che restituisce un `boolean`
+// pre svega, svojstvo asocijativnosti kodiram kao funkciju koja vraća `boolean`
 
 export const laws = {
   semigroup: {
@@ -18,24 +18,24 @@ export const laws = {
 // properties
 // -------------------------------------------------------------------------------------
 
-// poi ho definito una `property` di `fast-check` tramite una funzione che accetta il semigruppo da testare (parametro `S`)
-// e un `Arbitrary` di `fast-check`.
-// Un `Arbitrary<A>` è un data type che rappresenta la possiblità di creare valori di tipo `A` in modo random.
+// zatim definišem `property` iz `fast-check`-a pomoću funkcije koja prima polugrupu koju testiramo (parametar `S`)
+// i `Arbitrary` iz `fast-check`-a.
+// `Arbitrary<A>` je tip podataka koji predstavlja mogućnost nasumičnog kreiranja vrednosti tipa `A`.
 
 export const properties = {
   semigroup: {
     associativity: <A>(S: Semigroup<A>, arb: fc.Arbitrary<A>) =>
-      // dato che la legge che ho definito necessita di tre parametri (`a`, `b`, `c`),
-      // passo l'arbitrary a `fc.property` tre volte, una per ogni parametro.
+      // pošto su definisanom zakonu potrebna tri parametra (`a`, `b`, `c`),
+      // prosleđujem arbitrary funkciji `fc.property` tri puta, jednom za svaki parametar.
       fc.property(arb, arb, arb, laws.semigroup.associativity(S))
   }
 }
 
-// La libreria a questo punto fa tutto da sola una volta che chiamo `fc.assert`, bombarda cioè la proprietà
-// che ho definito con delle terne casuali da usare come `a`, `b`, `c` e verifica che la proprietà restituisca sempre `true`
+// Od tog trenutka biblioteka sve radi sama kada pozovem `fc.assert`, odnosno bombarduje svojstvo
+// definisano iznad nasumičnim trojkama koje koristi kao `a`, `b`, `c` i proverava da li svojstvo uvek vraća `true`
 
-// Nel caso non avvenga, la libreria è in grado di mostrare un controesempio.
-// Se guardate più sotto vado a testare la proprietà associativa per il magma `MagmaSub` (che abbiamo visto nel corso)
+// Ako to nije slučaj, biblioteka može da prikaže kontraprimer.
+// Ako pogledate niže, testiram svojstvo asocijativnosti za magmu `MagmaSub` (koju smo videli u kursu)
 
 // -------------------------------------------------------------------------------------
 // tests
@@ -47,12 +47,12 @@ export const MagmaSub: Magma<number> = {
   concat: (x, y) => x - y
 }
 
-// prova che `MagmaSub` non è un semigruppo se viene trovato un controesempio
-// in questo caso ho scelto di bombardare `MagmaSub` con interi casuali usando
-// l'Arbitrary `fc.integer` messo a disposizione da `fast-check`
+// dokazuje da `MagmaSub` nije polugrupa ako se pronađe kontraprimer
+// u ovom slučaju `MagmaSub` bombardujem nasumičnim celim brojevima koristeći
+// Arbitrary `fc.integer` koji obezbeđuje `fast-check`
 fc.assert(properties.semigroup.associativity(MagmaSub, fc.integer()))
 
-// se lanciate questo file con `ts-node src/laws.ts` dovreste vedere un output di questo tipo:
+// ako pokrenete ovaj fajl sa `ts-node src/laws.ts`, trebalo bi da vidite izlaz poput ovog:
 /*
 Error: Property failed after 1 tests
 { seed: 1835229399, path: "0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0", endOnFailure: true }
@@ -61,15 +61,15 @@ Shrunk 32 time(s)
 Got error: Property failed by returning false
 */
 
-// Il controesempio trovato è [0,0,1] (che sarebbe la tupla di parametri `[a, b, c]` che fanno fallire la legge)
-// Infatti:
+// Pronađeni kontraprimer je [0,0,1] (to je torka parametara `[a, b, c]` za koju zakon ne važi)
+// Zaista:
 // console.log(pipe(0, MagmaSub.concat(0), MagmaSub.concat(1))) // => -1
 // console.log(pipe(0, MagmaSub.concat(pipe(0, MagmaSub.concat(1))))) // => 1
 
 // -------------------------------------
 
-// `last` e `first` producono dei semigruppi? non posso dirlo con certezza usando
-// property testing perchè i seguenti assert NON producono controesempi
+// da li `last` i `first` daju polugrupe? ne mogu to sa sigurnošću da tvrdim koristeći
+// property testing, jer sledeći assert-ovi NE daju kontraprimere
 
 // fc.assert(properties.semigroup.associativity(Se.first<number>(), fc.integer()))
 // fc.assert(properties.semigroup.associativity(Se.last<number>(), fc.integer()))

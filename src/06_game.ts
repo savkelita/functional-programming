@@ -10,17 +10,17 @@ import { randomInt } from 'fp-ts/Random'
 import * as T from 'fp-ts/Task'
 import { getLine, putStrLn } from './Console'
 
-// il numero da indovinare
+// broj koji treba pogoditi
 export const secret: T.Task<number> = T.fromIO(randomInt(1, 100))
 
-// combinatore: stampa un messaggio prima di una azione
+// kombinator: ispisuje poruku pre neke akcije
 const withMessage = (message: string) => <A>(next: T.Task<A>): T.Task<A> =>
   pipe(
     putStrLn(message),
     T.chain(() => next)
   )
 
-// l'input è una stringa perciò dobbiamo validarlo
+// ulaz je string, pa moramo da ga validiramo
 const isValidGuess = between(N.Ord)(1, 100)
 const parseGuess = (s: string): O.Option<number> => {
   const n = parseInt(s, 10)
@@ -29,7 +29,7 @@ const parseGuess = (s: string): O.Option<number> => {
 
 const question: T.Task<string> = pipe(
   getLine,
-  withMessage('Indovina il numero')
+  withMessage('Pogodi broj')
 )
 
 const answer: T.Task<number> = pipe(
@@ -39,7 +39,7 @@ const answer: T.Task<number> = pipe(
       s,
       parseGuess,
       O.match(
-        () => pipe(answer, withMessage('Devi inserire un intero da 1 a 100')),
+        () => pipe(answer, withMessage('Unesi ceo broj od 1 do 100')),
         (n) => T.of(n)
       )
     )
@@ -47,23 +47,23 @@ const answer: T.Task<number> = pipe(
 )
 
 const check = <A>(
-  secret: number, // il numero segreto da indovinare
-  guess: number, // tentativo dell'utente
-  ok: T.Task<A>, // cosa fare se l'utente ha indovinato
-  ko: T.Task<A> // cosa fare se l'utente NON ha indovinato
+  secret: number, // tajni broj koji treba pogoditi
+  guess: number, // pokušaj korisnika
+  ok: T.Task<A>, // šta uraditi ako je korisnik pogodio
+  ko: T.Task<A> // šta uraditi ako korisnik NIJE pogodio
 ): T.Task<A> => {
   if (guess > secret) {
-    return pipe(ko, withMessage('Troppo alto'))
+    return pipe(ko, withMessage('Previsoko'))
   } else if (guess < secret) {
-    return pipe(ko, withMessage('Troppo basso'))
+    return pipe(ko, withMessage('Prenisko'))
   } else {
     return ok
   }
 }
 
-const end: T.Task<void> = putStrLn('Hai indovinato!')
+const end: T.Task<void> = putStrLn('Pogodak!')
 
-// mantengo lo stato (secret) come argomento della funzione (alla Erlang)
+// stanje (secret) čuvam kao argument funkcije (na Erlang način)
 const loop = (secret: number): T.Task<void> =>
   pipe(
     answer,

@@ -2,19 +2,19 @@
 
   # Summary
 
-  Supponiamo di avere una web app con utenti,
-  ogni utente ha un suo profilo, e di dover implementare
-  la feature modifica profilo (updateCustomerProfile).
+  Pretpostavimo da imamo web aplikaciju sa korisnicima,
+  da svaki korisnik ima svoj profil i da treba da implementiramo
+  funkcionalnost izmene profila (updateCustomerProfile).
 
-  I requisiti sono i seguenti
+  Zahtevi su sledeći
 
-  - la richiesta di modifica del profilo è rappresentata
-    da un modello di dominio (UpdateProfileRequest)
-  - occorre aggiornare le informazioni nel database (updateProfile)
-  - se l'email dell'utente è cambiata occorre mandare una email al vecchio
-    indirizzo per notificare l'avvenuto cambiamento (sendEmailChangedNotification)
+  - zahtev za izmenu profila predstavljen je
+    modelom domena (UpdateProfileRequest)
+  - treba ažurirati podatke u bazi podataka (updateProfile)
+  - ako se email korisnika promenio, treba poslati email na staru
+    adresu kao obaveštenje o promeni (sendEmailChangedNotification)
 
-  Incominciamo col modellare il problema
+  Počnimo od modelovanja problema
 
 */
 
@@ -38,12 +38,12 @@ export interface MonadEmail {
 
 /*
 
-  `MonadDB` e `MonadEmail` rappresentano le
-  "capabilities" di cui ha bisogno l'applicazione.
+  `MonadDB` i `MonadEmail` predstavljaju
+  "capabilities" (mogućnosti) koje su potrebne aplikaciji.
 
-  Il prefisso `Monad` sta ad inidicare che il codominio
-  di ogni operazione ha un effetto a cui corrisponde una
-  istanza di monade (in questo caso specifico `Task`)
+  Prefiks `Monad` označava da kodomen
+  svake operacije ima efekat kome odgovara
+  instanca monade (u ovom konkretnom slučaju `Task`)
 
 */
 
@@ -58,18 +58,18 @@ declare const monadEmail: MonadEmail
 
 /*
 
-  In questa prima versione le istanze `monadDB` e `monadEmail`
-  sono cablate nel codice. Si faccia conto che siano importate
-  staticamente come moduli. Lo scopo ora è cercare di scablarle.
+  U ovoj prvoj verziji instance `monadDB` i `monadEmail`
+  su fiksno ugrađene u kod. Zamislite da su uvezene
+  statički, kao moduli. Cilj je sada da tu fiksnu vezu raskinemo.
 
 */
 
 import { pipe } from 'fp-ts/function'
 
 /**
- * Restituisce `true` se è stata inviata una notifica
+ * Vraća `true` ako je poslato obaveštenje
  *
- * In questa versione le dipendenze sono cablate nel codice
+ * U ovoj verziji zavisnosti su fiksno ugrađene u kod
  */
 export const updateCustomerProfile1 = (
   request: UpdateProfileRequest
@@ -95,9 +95,9 @@ export const updateCustomerProfile1 = (
 
 /*
 
-  La prima operazione da fare è chiaramente quella di passare le dipendenze come argomenti
-  e usare il currying. In questo modo abbiamo la possibilità di iniettare le dipendenze
-  ed ottenere una API dalla firma pulita.
+  Prvo što treba uraditi je, očigledno, da zavisnosti prosledimo kao argumente
+  i iskoristimo currying. Na taj način možemo da ubrizgamo zavisnosti
+  i dobijemo API sa čistim potpisom.
 
 */
 
@@ -108,19 +108,19 @@ export declare const updateCustomerProfile2: (
 
 /*
 
-  Il "problema" di questa soluzione è che
-  ogni consumer di updateCustomerProfile2 deve
-  preoccuparsi di passare gli argomenti
-  `MonadDB` e `MonadEmail`.
+  "Problem" ovog rešenja je u tome što
+  svaki korisnik (consumer) funkcije updateCustomerProfile2 mora
+  da vodi računa o prosleđivanju argumenata
+  `MonadDB` i `MonadEmail`.
 
-  Ora, forte dell'adagio che in programmazione funzionale
-  essere pigri è una qualità invece di un difetto,
-  faccio una operazione a prima vista bizzarra:
-  scambio l'ordine dei due gruppi di argomenti nella funzione curried,
-  postponendo la necessità di avere a disposizione le dipendenze.
+  E sad, oslanjajući se na izreku da je u funkcionalnom programiranju
+  lenjost vrlina, a ne mana,
+  radim nešto što na prvi pogled deluje čudno:
+  menjam redosled dve grupe argumenata u curried funkciji,
+  odlažući trenutak kada zavisnosti moraju biti dostupne.
 
-  Aggiungo anche un nuovo type alias per avere un solo
-  parametro contenente tutte le dipendenze.
+  Dodajem i novi type alias kako bi postojao samo jedan
+  parametar koji sadrži sve zavisnosti.
 
 */
 
@@ -135,14 +135,14 @@ export declare const updateCustomerProfile3: (
 
 /*
 
-  In pratica sto ritardando il più possibile il binding
-  delle dipendenze invece di farlo il prima possibile.
-  Adesso dovrebbe essere chiaro come si ottiene `Reader`,
-  guardate l'ultima parte della firma
+  U praksi odlažem binding
+  zavisnosti što je kasnije moguće, umesto da to uradim što ranije.
+  Sada bi trebalo da bude jasno kako se dolazi do `Reader`-a,
+  pogledajte poslednji deo potpisa
 
   (dependencies: Deps) => Task<boolean>
 
-  Non è altro che Reader<Deps, Task<boolean>>
+  To nije ništa drugo nego Reader<Deps, Task<boolean>>
 
 */
 
@@ -154,8 +154,8 @@ export declare const updateCustomerProfile4: (
 
 /*
 
-  Avendo due monadi innestate (Reader e Task) conviene importare una terza
-  monade che le comprende.
+  Pošto imamo dve ugnežđene monade (Reader i Task), zgodno je uvesti treću
+  monadu koja ih objedinjuje.
 
 */
 
@@ -163,8 +163,8 @@ import * as RT from 'fp-ts/ReaderTask'
 
 /*
 
-  Addesso ridefinisco le capabilities
-  in funzione di `ReaderTask`
+  Sada redefinišem capabilities
+  pomoću `ReaderTask`
 
 */
 
@@ -185,7 +185,7 @@ const sendEmailChangedNotification = (
 
 /*
 
-  ...e le uso per ridefinire updateCustomerProfile
+  ...i koristim ih da redefinišem updateCustomerProfile
 
 */
 
@@ -213,14 +213,14 @@ const updateCustomerProfile5 = (
 
 /*
 
-  Ora come è possibile testare il nostro programma?
+  Kako sada možemo da testiramo naš program?
 
-  Semplicemente defininendo delle istanze di test
-  per per `MonadDB` e `MonadEmail`
+  Jednostavno, definisanjem test instanci
+  za `MonadDB` i `MonadEmail`
 
 */
 
-/** scrive dallo standard output */
+/** piše na standardni izlaz */
 export const putStrLn = (message: string): T.Task<void> => () =>
   new Promise((res) => {
     res(console.log(message))

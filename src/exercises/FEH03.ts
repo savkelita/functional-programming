@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Semigroup` per `Either`
+ * Definisati instancu `Semigroup` za `Either`
  */
 import { Semigroup } from 'fp-ts/Semigroup'
 import * as S from 'fp-ts/string'

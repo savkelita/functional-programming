@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Eq` per `ReadonlyArray`
+ * Definisati instancu `Eq` za `ReadonlyArray`
  */
 import { Eq } from 'fp-ts/Eq'
 import * as N from 'fp-ts/number'

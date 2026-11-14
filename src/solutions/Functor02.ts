@@ -1,5 +1,5 @@
 /**
- * Implementare l'istanza di `Functor` per `Either`
+ * Implementirati instancu `Functor` za `Either`
  */
 import { URI, right, left, isLeft } from 'fp-ts/Either'
 import { Functor2 } from 'fp-ts/Functor'

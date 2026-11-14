@@ -1,5 +1,5 @@
 /**
- * Implementare le seguenti funzioni
+ * Implementirati sledeće funkcije
  */
 import { IO } from 'fp-ts/IO'
 

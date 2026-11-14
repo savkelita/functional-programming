@@ -1,5 +1,5 @@
 /**
- * Implementare l'istanza di `Functor` per `IO`
+ * Implementirati instancu `Functor` za `IO`
  */
 import { URI } from 'fp-ts/IO'
 import { Functor1 } from 'fp-ts/Functor'

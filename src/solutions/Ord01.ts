@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Ord` per `ReadonlyArray`
+ * Definisati instancu `Ord` za `ReadonlyArray`
  */
 import { fromCompare, Ord } from 'fp-ts/Ord'
 import * as N from 'fp-ts/number'

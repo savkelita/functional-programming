@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Eq` per `Tree`
+ * Definisati instancu `Eq` za `Tree`
  */
 import { Eq, fromEquals } from 'fp-ts/Eq'
 import * as S from 'fp-ts/string'

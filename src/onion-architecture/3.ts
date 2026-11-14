@@ -1,8 +1,8 @@
 /*
 
-  Secondo refactoring: inversion of control
+  Drugo refaktorisanje: inversion of control
 
-  Le funzioni impure le trasformo in dipendenze
+  Nečiste funkcije pretvaram u zavisnosti
 
 */
 

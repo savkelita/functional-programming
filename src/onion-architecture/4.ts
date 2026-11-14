@@ -1,8 +1,8 @@
 /*
 
-  Terzo refactoring: rendere le funzioni pure con `IO`
+  Treće refaktorisanje: činimo funkcije čistim pomoću `IO`
 
-  Modifichiamo la firma delle funzioni impure usando `IO` e cambiamo il nome di alcune astrazioni per renderle più idiomatiche
+  Menjamo potpis nečistih funkcija koristeći `IO` i preimenujemo neke apstrakcije da bi bile idiomatičnije
 
 */
 

@@ -1,5 +1,5 @@
 /**
- * Definire una istanza di `Semigroup` per `Either` che accumula gli errori
+ * Definisati instancu `Semigroup` za `Either` koja akumulira greške
  */
 import { Semigroup } from 'fp-ts/Semigroup'
 import * as S from 'fp-ts/string'

@@ -1,8 +1,8 @@
 /**
- * Supponiamo di avere un `ReadonlyArray<A>` ma di non disporre di una istanza di monoide per `A`,
- * possiamo sempre mappare la lista e farla diventare di un tipo per il quale abbiamo una istanza.
+ * Pretpostavimo da imamo `ReadonlyArray<A>`, ali da nemamo na raspolaganju instancu monoida za `A`;
+ * uvek možemo da mapiramo listu i pretvorimo je u listu tipa za koji imamo instancu.
  *
- * Questa operazione è realizzata dalla seguente funzione `foldMap` che dovete implementare.
+ * Ovu operaciju obavlja sledeća funkcija `foldMap`, koju treba da implementirate.
  */
 import { Monoid } from 'fp-ts/Monoid'
 import * as N from 'fp-ts/number'
@@ -29,7 +29,7 @@ const bonifici: ReadonlyArray<Bonifico> = [
   { causale: 'causale3', importo: 350 }
 ]
 
-// calcola la somma dei bonifici
+// računa zbir bankovnih transfera
 assert.deepStrictEqual(
   pipe(
     bonifici,

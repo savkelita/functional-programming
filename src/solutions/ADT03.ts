@@ -1,6 +1,6 @@
 /*
 
-  Rifattorizzare il seguente codice in modo da eliminare l'errore di compilazione.
+  Refaktorisati sledeći kod tako da se ukloni greška pri kompajliranju.
 
 */
 import { flow } from 'fp-ts/function'
