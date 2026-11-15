@@ -1,5 +1,10 @@
 # `Task` naspram `Promise`
 
+> [!NOTE]
+> Dodatak B originalnog prevoda. Tekst je neizmenjen. [Sadržaj originalnog prevoda](index.md)
+>
+> Prerada ovog materijala planirana je u Celini 5 — Monade i efekti (vidi [mapu sadržaja](../mapa-sadrzaja.md)).
+
 `Task` je apstrakcija slična `Promise`-u; ključna razlika je u tome što `Task` predstavlja asinhrono izračunavanje
 dok `Promise` predstavlja samo rezultat (dobijen asinhrono).
 
@@ -16,3 +21,7 @@ Ako imamo `Promise`
 - izračunavanje se već odvija (ili se čak već završilo) i nad tim nemamo kontrolu
 - kada je rezultat dostupan, dobijamo ga
 - dva korisnika istog `Promise`-a dobijaju isti rezultat
+
+---
+
+[← Dodatak: Monad transformeri](dodatak-monad-transformeri.md) · [Sadržaj](index.md)

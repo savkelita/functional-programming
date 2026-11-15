@@ -1,5 +1,10 @@
 # Monad transformeri
 
+> [!NOTE]
+> Dodatak A originalnog prevoda. Tekst je neizmenjen. [Sadržaj originalnog prevoda](index.md)
+>
+> Prerada ovog materijala planirana je u Celini 5 — Monade i efekti (vidi [mapu sadržaja](../mapa-sadrzaja.md)).
+
 **Scenario 1**
 
 Pretpostavimo da smo definisali sledeće API-je:
@@ -81,3 +86,7 @@ Pogledajmo nekoliko primera: ako `M` ima instancu monade, onda instancu monade i
 Uopštenije, **monad transformeri** su skup konkretnih "recepata" koji pokazuju kako se tipu `M<N<A>>` može pridružiti instanca monade kada `M` i `N` imaju instance monade.
 
 Da bismo mogli udobno da radimo, potrebne su nam operacije koje omogućavaju da izračunavanja koja se izvršavaju u sastavnim monadama "uronimo" u ciljnu monadu: to su _lifting_ funkcije.
+
+---
+
+[← Monade](13-monade.md) · [Sadržaj](index.md) · [Dodatak: Task naspram Promise →](dodatak-task-vs-promise.md)

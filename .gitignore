@@ -4,3 +4,10 @@ dist
 dev
 coverage
 .cache
+
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
+
+# npm run docs:check
+.docs-check

@@ -8,7 +8,11 @@
     "build": "tsc -p ./tsconfig.json",
     "doctoc": "doctoc README.md",
     "shapes": "npx parcel src/shapes.html",
-    "functor": "npx parcel src/functor.html"
+    "functor": "npx parcel src/functor.html",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:check": "node scripts/check-docs.mjs"
   },
   "repository": {
     "type": "git",
@@ -29,13 +33,16 @@
   "devDependencies": {
     "@types/node": "^12.6.8",
     "doctoc": "^1.4.0",
-    "parcel-bundler": "^1.12.4",
     "prettier": "^2.2.1",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-etc": "^1.13.9",
     "tslint-immutable": "^6.0.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "vitepress": "1.6.4"
+  },
+  "optionalDependencies": {
+    "parcel-bundler": "^1.12.4"
   },
   "tags": [],
   "keywords": []

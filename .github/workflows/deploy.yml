@@ -1,0 +1,64 @@
+# Gradi portal (VitePress) i objavljuje ga na GitHub Pages.
+#
+# - push na `master`: provera + build + objavljivanje
+# - pull request:     provera + build (bez objavljivanja)
+# - ručno pokretanje: Actions → "Portal" → Run workflow
+#
+# Jednokratno podešavanje repozitorijuma: Settings → Pages → Source: "GitHub Actions".
+name: Portal
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # potrebno za "Poslednja izmena" na stranicama
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Provera linkova i TypeScript primera
+        run: npm run docs:check
+
+      - name: Build portala
+        run: npm run docs:build
+
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: docs/.vitepress/dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Objavljivanje na GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
