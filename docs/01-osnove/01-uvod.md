@@ -218,7 +218,7 @@ Sve što ćemo kasnije videti u kursu proizilazi, direktno ili indirektno, iz ov
 
 - **referencijalna transparentnost** zahteva
   - čiste i totalne funkcije (lekcije [2](02-ciste-funkcije.md) i [8](08-totalne-i-parcijalne-funkcije.md)), pa sporedni efekti postaju _efekti_, vrednosti koje ih opisuju ([lekcija 3](03-sporedni-efekti.md), Celina 5)
-  - rukovanje greškama bez izuzetaka (lekcija 8, Celina 2)
+  - rukovanje greškama bez izuzetaka (lekcija 8, [Celina 2](../02-modelovanje/index.md))
   - nepromenljivost podataka ([lekcija 5](05-nepromenljivost.md))
 - **kompozicija** obuhvata
   - kompoziciju funkcija, `pipe` i `flow` (lekcije [6](06-kompozicija-funkcija.md) i [7](07-pipe-i-flow.md))

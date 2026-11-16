@@ -149,7 +149,7 @@ const firstOfFirst = first === undefined ? undefined : head(first)
 console.log(firstOfFirst) // => undefined — da li je prazan spoljni ili unutrašnji niz?
 ```
 
-U oba slučaja informacija je izgubljena, jer se `A | undefined | undefined` svodi na `A | undefined`. Zato funkcionalno programiranje uvodi poseban tip, `Option`, koji tačno odgovara zapisu `Option(Y) = Y ∪ None` i nema ovih problema. Kako se `Option` definiše u TypeScript-u videćemo u Celini 2 (u originalnom kursu: [Algebarski tipovi podataka](../original/08-algebarski-tipovi-podataka.md) i [Funkcionalno rukovanje greškama](../original/09-funkcionalno-rukovanje-greskama.md)).
+U oba slučaja informacija je izgubljena, jer se `A | undefined | undefined` svodi na `A | undefined`. Zato funkcionalno programiranje uvodi poseban tip, `Option`, koji tačno odgovara zapisu `Option(Y) = Y ∪ None` i nema ovih problema. Kako se `Option` definiše u TypeScript-u videćemo u [Celini 2, lekcija 5](../02-modelovanje/05-option.md).
 
 ### Način 2: suziti domen
 
@@ -196,7 +196,7 @@ const c: number = RNEA.head([1, 2, 3])
 console.log(c) // => 1
 ```
 
-I za JSON postoje totalne verzije, u modulu `fp-ts/Json`: `parse: (s: string) => Either<unknown, Json>` i `stringify: <A>(a: A) => Either<unknown, string>`. Tip `Either` je kao `Option`, ali uz neuspeh nosi i informaciju o grešci. Obrađujemo ga u Celini 2.
+I za JSON postoje totalne verzije, u modulu `fp-ts/Json`: `parse: (s: string) => Either<unknown, Json>` i `stringify: <A>(a: A) => Either<unknown, string>`. Tip `Either` je kao `Option`, ali uz neuspeh nosi i informaciju o grešci. Obrađujemo ga u [Celini 2, lekcija 6](../02-modelovanje/06-either.md).
 
 ## Najčešće greške
 
@@ -260,4 +260,4 @@ Napomena uz `parseAge`: `Number('')` je `0`, pa prazan unos daje `0`. Da li je t
 
 ## Sledeća lekcija
 
-Ovim se završava Celina 1. Sledeća je [Celina 2 — Modelovanje podataka i grešaka](../02-modelovanje/index.md), u kojoj tipovima proizvoda i sume modelujemo podatke tako da „nemoguća stanja ne mogu da se predstave“, a zatim definišemo `Option` i `Either`. Celina je u pripremi; do tada je gradivo dostupno u originalnom prevodu: [Algebarski tipovi podataka](../original/08-algebarski-tipovi-podataka.md) i [Funkcionalno rukovanje greškama](../original/09-funkcionalno-rukovanje-greskama.md).
+Ovim se završava Celina 1. Sledeća je [Celina 2 — Modelovanje podataka i grešaka](../02-modelovanje/index.md), u kojoj tipovima proizvoda i sume modelujemo podatke tako da „nemoguća stanja ne mogu da se predstave“, a zatim definišemo `Option` i `Either`. Prva lekcija je [Product tipovi](../02-modelovanje/01-product-tipovi.md).

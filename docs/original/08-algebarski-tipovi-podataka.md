@@ -3,7 +3,7 @@
 > [!NOTE]
 > Poglavlje 8 originalnog prevoda. Tekst je neizmenjen — prilagođene su samo putanje do slika i koda i interne veze između poglavlja. [Sadržaj originalnog prevoda](index.md)
 >
-> Prerada ovog poglavlja planirana je u Celini 2 — Modelovanje podataka i grešaka (vidi [mapu sadržaja](../mapa-sadrzaja.md)).
+> Ovo poglavlje je prerađeno u novoj strukturi kursa: [Product tipovi](../02-modelovanje/01-product-tipovi.md), [Sum tipovi](../02-modelovanje/02-sum-tipovi.md), [Discriminated unions](../02-modelovanje/03-discriminated-unions.md), [Pattern matching](../02-modelovanje/04-pattern-matching.md).
 
 
 Dobar prvi korak pri izgradnji nove aplikacije jeste definisanje njenog domenskog modela. TypeScript nudi mnogo alata koji pomažu u tom zadatku. **Algebarski tipovi podataka** (Algebraic Data Types, skraćeno ADT) jedan su od tih alata.

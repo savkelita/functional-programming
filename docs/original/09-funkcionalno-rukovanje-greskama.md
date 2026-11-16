@@ -3,7 +3,7 @@
 > [!NOTE]
 > Poglavlje 9 originalnog prevoda. Tekst je neizmenjen — prilagođene su samo putanje do slika i koda i interne veze između poglavlja. [Sadržaj originalnog prevoda](index.md)
 >
-> Prerada ovog poglavlja planirana je u Celini 2 — Modelovanje podataka i grešaka (vidi [mapu sadržaja](../mapa-sadrzaja.md)).
+> Ovo poglavlje je prerađeno u novoj strukturi kursa: [Option](../02-modelovanje/05-option.md), [Either](../02-modelovanje/06-either.md), [Modelovanje neuspeha bez izuzetaka](../02-modelovanje/07-neuspeh-bez-izuzetaka.md). Odeljci o instancama `Eq`, `Semigroup` i `Monoid` za `Option` planirani su za Celinu 3 (vidi [mapu sadržaja](../mapa-sadrzaja.md)).
 
 
 Pogledajmo kako da rukujemo greškama na funkcionalan način.

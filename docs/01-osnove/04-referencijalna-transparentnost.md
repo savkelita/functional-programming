@@ -216,7 +216,7 @@ U Celini 5 videćemo kako se opisi poput `greet` kombinuju operacijom `chain` i 
 - **„`const` garantuje referencijalnu transparentnost.“** Ne garantuje: `const xs = [1, 2, 3]` i dalje može da se promeni sa `xs.push(4)` ([lekcija 5](05-nepromenljivost.md)).
 - **„Ako test prolazi, izraz je referencijalno transparentan.“** Test proverava jedan kontekst; definicija govori o _svakom_ kontekstu. `Date.now()` može da vrati istu vrednost u dva poziva iste milisekunde.
 - **„Sačuvati `Promise` u promenljivu je isto što i pozvati funkciju dvaput.“** `const p = fetchUser(1)` odmah pokreće zahtev; `await p` dvaput daje isti rezultat iz jednog zahteva, a `await fetchUser(1)` dvaput šalje dva zahteva.
-- **„Izuzetak je u redu ako ga uhvatimo.“** Izraz koji baca izuzetak i dalje nije referencijalno transparentan. Kako se greške modeluju vrednostima videćemo u [lekciji 8](08-totalne-i-parcijalne-funkcije.md) i Celini 2.
+- **„Izuzetak je u redu ako ga uhvatimo.“** Izraz koji baca izuzetak i dalje nije referencijalno transparentan. Kako se greške modeluju vrednostima videćemo u [lekciji 8](08-totalne-i-parcijalne-funkcije.md) i u lekciji [Modelovanje neuspeha bez izuzetaka](../02-modelovanje/07-neuspeh-bez-izuzetaka.md).
 
 ## Vežba
 

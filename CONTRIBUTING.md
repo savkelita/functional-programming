@@ -69,7 +69,8 @@ Terminologija prati originalni prevod:
 - Svaki ` ```ts ` blok u lekcijama je **samostalan**: sadrži sve `import`-e i definicije koje koristi. Komanda `npm run docs:check` svaki blok proverava kompajlerom kao poseban modul, sa podešavanjima iz [`tsconfig.json`](tsconfig.json) (TypeScript 4.2, `strict`).
 - Blok koji namerno nije potpun kod (pseudo-kod, potpis, fragment) označava se sa ` ```ts nocheck `. Oznaka ne utiče na prikaz ni na portalu ni na GitHub-u.
 - Kada primer namerno pokazuje grešku kompajlera, koristi se `// @ts-expect-error — objašnjenje` u redu iznad. Tako provera potvrđuje da greška zaista postoji. Pri prvoj upotrebi u lekciji kratko objasnite šta direktiva znači.
-- Očekivani ispis piše se komentarom `// => ...`, tačno onako kako ga ispisuje Node.js (npr. `// => [ 1, 2, 3 ]`, stringovi bez navodnika).
+- Očekivani ispis piše se komentarom `// => ...`, tačno onako kako ga ispisuje Node.js (npr. `// => [ 1, 2, 3 ]`, stringovi bez navodnika). Kada Node ispis prelomi u više redova (duži nizovi i objekti), prepišite ga u blok komentar `/* ... */`.
+- Pišite kod koji radi i sa novijim verzijama TypeScript-a, jer ga čitaoci kopiraju u svoje projekte i u Playground. Na primer, u `catch (e)` tretirajte `e` kao `unknown` (`e instanceof Error ? e.message : String(e)`).
 - Stil koda prati [`.prettierrc`](.prettierrc): bez tačke-zareza, jednostruki navodnici.
 - Koristite samo mogućnosti jezika koje podešavanja TypeScript-a u repozitorijumu poznaju (biblioteke do ES2018); novije API-je (npr. `toSorted`) pominjite u tekstu.
 

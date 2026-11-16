@@ -154,7 +154,7 @@ const log = (message: string): DSL => {
 }
 ```
 
-Konkretno, `DSL` bi mogao da bude unija objekata koje razlikuje polje `_tag` (takve tipove detaljno obrađujemo u Celini 2):
+Konkretno, `DSL` bi mogao da bude unija objekata koje razlikuje polje `_tag` (takve tipove detaljno obrađujemo u lekciji [Discriminated unions](../02-modelovanje/03-discriminated-unions.md)):
 
 ```ts
 type DSL =
@@ -248,8 +248,8 @@ U kursu ćemo upoznati više tipova koji, poput `IO`, **predstavljaju** određen
 
 | Tip                | Efekat (tumačenje)                                         | Gde ga učimo |
 | ------------------ | ---------------------------------------------------------- | ------------ |
-| `Option<A>`        | izračunavanje koje može da ne uspe                         | Celina 2     |
-| `Either<E, A>`     | izračunavanje koje može da ne uspe, uz razlog neuspeha     | Celina 2     |
+| `Option<A>`        | izračunavanje koje može da ne uspe                         | [Celina 2](../02-modelovanje/05-option.md) |
+| `Either<E, A>`     | izračunavanje koje može da ne uspe, uz razlog neuspeha     | [Celina 2](../02-modelovanje/06-either.md) |
 | `ReadonlyArray<A>` | nedeterminističko izračunavanje (više mogućih rezultata)   | Celina 4     |
 | `IO<A>`            | sinhrono izračunavanje koje **nikada ne završava neuspehom** | Celina 5   |
 | `Task<A>`          | asinhrono izračunavanje koje **nikada ne završava neuspehom** | Celina 5  |

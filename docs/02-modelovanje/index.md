@@ -1,26 +1,23 @@
 # Celina 2 — Modelovanje podataka i grešaka
 
-> [!WARNING]
-> Ova celina je **u pripremi**: lekcije još nisu prerađene prema novom standardu kursa. Do tada gradivo možete da čitate u originalnom prevodu — linkovi su u tabeli ispod.
+U ovoj celini učimo kako se tipovima modeluju **samo validna stanja** i kako se **očekivane greške** predstavljaju vrednostima, umesto izuzecima. Glavni alat je kardinalnost — broj vrednosti koje tip dozvoljava — a glavna maksima: _make impossible state unrepresentable_.
 
-**Cilj celine:** pokazati kako se tipovima mogu modelovati samo validna stanja i kako se očekivane greške predstavljaju vrednostima, umesto izuzecima.
+**Predznanje:** [Celina 1](../01-osnove/index.md), posebno [Totalne i parcijalne funkcije](../01-osnove/08-totalne-i-parcijalne-funkcije.md) i [`pipe` i `flow`](../01-osnove/07-pipe-i-flow.md). Iz TypeScript-a: `interface`, `type`, unije i literal tipovi.
 
-**Predznanje:** [Celina 1](../01-osnove/index.md), posebno [Totalne i parcijalne funkcije](../01-osnove/08-totalne-i-parcijalne-funkcije.md).
+## Lekcije
 
-## Planirane lekcije
+| #   | Lekcija                                                                  | Ukratko                                                                                |
+| --- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| 1   | [Product tipovi](01-product-tipovi.md)                                   | Torke i strukture, kardinalnost proizvoda, nezavisne komponente                        |
+| 2   | [Sum tipovi](02-sum-tipovi.md)                                           | Disjunktne unije, kardinalnost sume, ADT kao suma proizvoda, zavisne komponente        |
+| 3   | [Discriminated unions](03-discriminated-unions.md)                       | Tag, sužavanje tipa, provera iscrpnosti, konstruktori                                  |
+| 4   | [Pattern matching](04-pattern-matching.md)                               | Funkcija `match`, rekurzivni tipovi, `match` i `matchW` u `fp-ts`-u                    |
+| 5   | [Option](05-option.md)                                                   | Vrednost koja možda postoji; parcijalne funkcije postaju totalne                        |
+| 6   | [Either](06-either.md)                                                   | Neuspeh sa razlogom; greške domena kao tip sume                                        |
+| 7   | [Modelovanje neuspeha bez izuzetaka](07-neuspeh-bez-izuzetaka.md)        | Očekivane greške i defekti, granice sistema, nadovezivanje koraka                      |
 
-| #   | Lekcija                              | Gradivo u originalnom prevodu                                                                                                                                                       |
-| --- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Product tipovi                       | [Tipovi proizvoda](../original/08-algebarski-tipovi-podataka.md#tipovi-proizvoda)                                                                                                  |
-| 2   | Sum tipovi                           | [Tipovi sume](../original/08-algebarski-tipovi-podataka.md#tipovi-sume), [Kada treba da koristim tip sume?](../original/08-algebarski-tipovi-podataka.md#kada-treba-da-koristim-tip-sume) |
-| 3   | Discriminated unions                 | [Tipovi sume](../original/08-algebarski-tipovi-podataka.md#tipovi-sume) i [Konstruktori](../original/08-algebarski-tipovi-podataka.md#konstruktori) ¹                                  |
-| 4   | Pattern matching                     | [Pattern matching](../original/08-algebarski-tipovi-podataka.md#pattern-matching)                                                                                                  |
-| 5   | Option                               | [Tip `Option`](../original/09-funkcionalno-rukovanje-greskama.md#tip-option) ²                                                                                                       |
-| 6   | Either                               | [Tip `Either`](../original/09-funkcionalno-rukovanje-greskama.md#tip-either)                                                                                                         |
-| 7   | Modelovanje neuspeha bez izuzetaka   | Uvod poglavlja [Funkcionalno rukovanje greškama](../original/09-funkcionalno-rukovanje-greskama.md) ³                                                                               |
+Lekcije prate isti obrazac kao u [Celini 1](../01-osnove/index.md#kako-su-lekcije-organizovane). Na kraju svake lekcije, u odeljku **Izvori**, navedeno je šta potiče iz [originalnog prevoda](../original/index.md), a šta je dodato.
 
-1. U originalu su discriminated unions deo odeljka o tipovima sume. Posebna lekcija fokusiraće se na mehanizme TypeScript-a: polje-oznaku (tag), sužavanje tipa (narrowing) i proveru iscrpnosti (exhaustive check).
-2. Instance `Eq`, `Semigroup` i `Monoid` za `Option` zahtevaju gradivo Celine 3, pa prelaze tamo.
-3. Lekcija će uglavnom biti nova: sinteza primera iz originala (`head`, `readFile` sa callback-om) i lekcije 8 iz Celine 1.
+## Šta je premešteno
 
-Detaljan raspored nalazi se u [mapi sadržaja](../mapa-sadrzaja.md).
+Originalni kurs uvodi `Eq`, `Semigroup` i `Monoid` **pre** tipa `Option`, pa u poglavlju o rukovanju greškama definiše i instance tih struktura za `Option`. U ovom kursu je redosled obrnut, pa su ti odeljci premešteni u [Celinu 3](../03-algebre/index.md). Isto važi i za vežbe [`FEH01`](../../src/exercises/FEH01.ts)–[`FEH04`](../../src/exercises/FEH04.ts).

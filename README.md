@@ -17,7 +17,7 @@ Za programere koji poznaju osnove TypeScript-a (tipovi, funkcije, generici). Pre
 | Celina                                                                    | Teme                                                                                                 | Status      |
 | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
 | [1. Temelji funkcionalnog programiranja](docs/01-osnove/index.md)         | čiste funkcije, sporedni efekti, referencijalna transparentnost, nepromenljivost, kompozicija, `pipe` i `flow`, totalne i parcijalne funkcije | dostupna    |
-| [2. Modelovanje podataka i grešaka](docs/02-modelovanje/index.md)         | tipovi proizvoda i sume, discriminated unions, pattern matching, `Option`, `Either`                   | u pripremi  |
+| [2. Modelovanje podataka i grešaka](docs/02-modelovanje/index.md)         | tipovi proizvoda i sume, discriminated unions, pattern matching, `Option`, `Either`                   | dostupna    |
 | [3. Algebra i matematički zakoni](docs/03-algebre/index.md)               | `Magma`, `Semigroup`, `Monoid`, `Eq`, `Ord`, asocijativnost, neutralni element                        | u pripremi  |
 | [4. Apstrakcije i kompozicija](docs/04-apstrakcije/index.md)              | `Functor`, `map`, `Apply`, `Applicative`, `of`                                                        | u pripremi  |
 | [5. Monade i efekti](docs/05-efekti/index.md)                             | `Monad`, `chain`, `flatten`, monadski zakoni, `IO`, `Task`, `Reader`                                  | u pripremi  |
@@ -55,7 +55,7 @@ functional-programming/
 ├── docs/                    sadržaj portala (Markdown)
 │   ├── index.md             početna strana portala
 │   ├── 01-osnove/           Celina 1 — lekcije
-│   ├── 02-modelovanje/      Celina 2 — u pripremi
+│   ├── 02-modelovanje/      Celina 2 — lekcije
 │   ├── 03-algebre/          Celina 3 — u pripremi
 │   ├── 04-apstrakcije/      Celina 4 — u pripremi
 │   ├── 05-efekti/           Celina 5 — u pripremi

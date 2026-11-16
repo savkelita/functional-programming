@@ -21,6 +21,18 @@ Ova stranica povezuje [originalni prevod](original/index.md) sa novom strukturom
 | [7. `pipe` i `flow`](01-osnove/07-pipe-i-flow.md)                                        | pipeline iz [Šta je FP](original/01-sta-je-funkcionalno-programiranje.md); definicije iz [Centralni problem kompozicije](original/10-teorija-kategorija.md#centralni-problem-kompozicije-funkcija); [`00_pipe_and_flow.ts`](../src/00_pipe_and_flow.ts) | Prošireno      |
 | [8. Totalne i parcijalne funkcije](01-osnove/08-totalne-i-parcijalne-funkcije.md)        | definicije, kvizovi i `Option(Y)` iz [Čiste i parcijalne funkcije](original/07-ciste-i-parcijalne-funkcije.md); `head` koji baca izuzetak iz [Tip `Option`](original/09-funkcionalno-rukovanje-greskama.md#tip-option)                  | Prošireno      |
 
+## Celina 2 — Modelovanje podataka i grešaka (završena)
+
+| Lekcija | Delovi originala | Poreklo |
+| --- | --- | --- |
+| [1. Product tipovi](02-modelovanje/01-product-tipovi.md) | uvod u ADT, [Tipovi proizvoda](original/08-algebarski-tipovi-podataka.md#tipovi-proizvoda) (kardinalnost, kviz, nezavisne komponente) | Prošireno |
+| [2. Sum tipovi](02-modelovanje/02-sum-tipovi.md) | [Tipovi sume](original/08-algebarski-tipovi-podataka.md#tipovi-sume) (disjunktnost, kardinalnost, ADT kao suma proizvoda, lista, kviz o strukturama), [Kada treba da koristim tip sume?](original/08-algebarski-tipovi-podataka.md#kada-treba-da-koristim-tip-sume) | Prošireno |
+| [3. Discriminated unions](02-modelovanje/03-discriminated-unions.md) | tag i redux akcije iz [Tipovi sume](original/08-algebarski-tipovi-podataka.md#tipovi-sume), [Konstruktori](original/08-algebarski-tipovi-podataka.md#konstruktori); vežba [`ADT02.ts`](../src/exercises/ADT02.ts) | Pretežno novo |
+| [4. Pattern matching](02-modelovanje/04-pattern-matching.md) | [Pattern matching](original/08-algebarski-tipovi-podataka.md#pattern-matching); vežbe [`ADT01.ts`](../src/exercises/ADT01.ts) i [`ADT03.ts`](../src/exercises/ADT03.ts) | Prošireno |
+| [5. Option](02-modelovanje/05-option.md) | uvod i [Tip `Option`](original/09-funkcionalno-rukovanje-greskama.md#tip-option) (bez instanci `Eq`, `Semigroup`, `Monoid`) | Prošireno |
+| [6. Either](02-modelovanje/06-either.md) | [Tip `Either`](original/09-funkcionalno-rukovanje-greskama.md#tip-either); vežba [`FEH05.ts`](../src/exercises/FEH05.ts) | Prošireno |
+| [7. Modelovanje neuspeha bez izuzetaka](02-modelovanje/07-neuspeh-bez-izuzetaka.md) | uvod poglavlja [Funkcionalno rukovanje greškama](original/09-funkcionalno-rukovanje-greskama.md), maksima i kviz o `Promise`-u iz [Kada treba da koristim tip sume?](original/08-algebarski-tipovi-podataka.md#kada-treba-da-koristim-tip-sume) | Pretežno novo |
+
 Svaka lekcija na kraju ima odeljak **Izvori** sa preciznim spiskom preuzetog i novog sadržaja.
 
 ## Raspored originalnih poglavlja
@@ -46,14 +58,14 @@ Za svako poglavlje originala: gde je prerađeno (✓) ili gde je planirano.
 |                                                                                        | definicija sporednog efekta                     | ✓ C1 L4                                                           |
 |                                                                                        | definicija kompozicije                          | ✓ C1 L6                                                           |
 |                                                                                        | parcijalne i totalne funkcije, `Option(Y)`      | ✓ C1 L8                                                           |
-| [8. Algebarski tipovi podataka](original/08-algebarski-tipovi-podataka.md)             | tipovi proizvoda (sa kardinalnošću)             | C2 Product tipovi                                                 |
-|                                                                                        | tipovi sume, konstruktori                       | C2 Sum tipovi, C2 Discriminated unions                            |
-|                                                                                        | pattern matching                                | C2 Pattern matching                                               |
-| [9. Funkcionalno rukovanje greškama](original/09-funkcionalno-rukovanje-greskama.md)   | uvod                                            | C2 Modelovanje neuspeha bez izuzetaka                             |
-|                                                                                        | Tip `Option`                                    | C2 Option (primer `head` već u C1 L8)                             |
+| [8. Algebarski tipovi podataka](original/08-algebarski-tipovi-podataka.md)             | tipovi proizvoda (sa kardinalnošću)             | ✓ C2 L1                                                           |
+|                                                                                        | tipovi sume, konstruktori                       | ✓ C2 L2, L3                                                       |
+|                                                                                        | pattern matching                                | ✓ C2 L4                                                           |
+| [9. Funkcionalno rukovanje greškama](original/09-funkcionalno-rukovanje-greskama.md)   | uvod                                            | ✓ C2 L5, L7                                                       |
+|                                                                                        | Tip `Option`                                    | ✓ C2 L5 (primer `head` i u C1 L8)                                 |
 |                                                                                        | Instanca za `Eq`                                | C3 Eq                                                             |
 |                                                                                        | Instance za `Semigroup` i `Monoid`              | C3 Monoid                                                         |
-|                                                                                        | Tip `Either`                                    | C2 Either                                                         |
+|                                                                                        | Tip `Either`                                    | ✓ C2 L6                                                           |
 | [10. Teorija kategorija](original/10-teorija-kategorija.md)                            | ceo                                             | C4 (predlog: uvodna lekcija); citati, problem i „spoiler“ ✓ C1 L6, definicije `pipe`/`flow` ✓ C1 L7 |
 | [11. Funktori](original/11-funktori.md)                                                | Funkcije kao programi                           | C4 (predlog: lekcija „Programi sa efektima“), C5 IO; delovi ✓ C1 L3 |
 |                                                                                        | Ograničenje koje vodi do funktora               | C4 Map, C4 Functor                                                |
@@ -86,7 +98,7 @@ Za svako poglavlje originala: gde je prerađeno (✓) ili gde je planirano.
 | [`06_game.ts`](../src/06_game.ts), [`hangman.ts`](../src/hangman.ts)                        | C5 Task, C5 Kompozicija efekata    |
 | [`reader.ts`](../src/reader.ts)                                                            | C5 Reader                          |
 | [`program6.ts`](../src/program6.ts), [`onion-architecture/`](../src/onion-architecture/)   | C5 Kompozicija efekata             |
-| [`exercises/`](../src/exercises/) i [`solutions/`](../src/solutions/)                      | vežbe odgovarajućih celina (Magma, Semigroup, Monoid, Eq, Ord → C3; ADT, FEH → C2; Functor, Apply, Applicative → C4; Monad → C5) |
+| [`exercises/`](../src/exercises/) i [`solutions/`](../src/solutions/)                      | ✓ `ADT01`–`ADT03`, `FEH05` → C2; `FEH01`–`FEH04`, Magma, Semigroup, Monoid, Eq, Ord → C3; Functor, Apply, Applicative → C4; Monad → C5 |
 
 ## Analiza: početna struktura naspram originala
 
@@ -95,8 +107,8 @@ Za svako poglavlje originala: gde je prerađeno (✓) ili gde je planirano.
 Ove teme su na početnom spisku, ali u originalu ne postoje kao posebna poglavlja. Pri preradi se jasno označavaju kao nov sadržaj:
 
 - **Nepromenljivost podataka** (C1 L5) — u originalu samo napomene; lekcija je pretežno nova.
-- **Discriminated unions** (C2) — u originalu deo odeljka o tipovima sume.
-- **Modelovanje neuspeha bez izuzetaka** (C2) — sinteza primera iz poglavlja 7 i 9.
+- **Discriminated unions** (C2 L3) — u originalu deo odeljka o tipovima sume; lekcija je pretežno nova.
+- **Modelovanje neuspeha bez izuzetaka** (C2 L7) — sinteza primera iz poglavlja 7, 8 i 9; lekcija je pretežno nova.
 - **Asocijativnost**, **Neutralni element**, **Značaj algebarskih zakona** (C3) — u originalu delovi poglavlja o polugrupama i monoidima, uz primer `laws.ts`.
 - **Effect** (sve celine) — original koristi isključivo `fp-ts`.
 
@@ -108,12 +120,12 @@ Ove teme ne smeju da se izgube; predlaže se gde da se smeste:
 - **Programi sa efektima** (odeljak „Funkcije kao programi“) — lekcija pre Map u Celini 4.
 - **Kontravarijantni funktori** i `contramap` — C4 Functor (`contramap` se prvi put javlja u C3 Eq i Ord).
 - **Slobodna polugrupa** — C3 Semigroup.
-- **Kardinalnost tipova** (zašto „proizvod“ i „suma“) — C2 Product i Sum tipovi.
+- **Kardinalnost tipova** (zašto „proizvod“ i „suma“) — ✓ C2 L1 i L2.
 - **Do notacija**, ubrizgavanje zavisnosti (`Deps`, hexagonal arhitektura), **onion arhitektura**, **monad transformeri** — C5 Kompozicija efekata.
 
 ### Predlozi za redosled
 
-Početna struktura je zadržana u Celini 1. Za ostale celine predlaže se redosled „problem pre apstrakcije“, koji prati i original:
+Početna struktura je zadržana u Celinama 1 i 2. Za ostale celine predlaže se redosled „problem pre apstrakcije“, koji prati i original:
 
 - **Celina 3:** Uvod → Magma → Asocijativnost → Semigroup → Neutralni element → Monoid → Eq → Ord → Značaj zakona.
 - **Celina 4:** Kategorije → Programi sa efektima → Map → Functor → Apply → Of → Applicative → Kompozicija unutar konteksta.

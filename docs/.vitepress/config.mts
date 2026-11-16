@@ -71,7 +71,16 @@ const sidebarKurs: DefaultTheme.SidebarItem[] = [
   },
   {
     text: 'Celina 2 — Modelovanje podataka i grešaka',
-    items: [{ text: 'Celina 2: pregled (u pripremi)', link: '/02-modelovanje/' }]
+    items: [
+      { text: 'Celina 2: pregled', link: '/02-modelovanje/' },
+      { text: '1. Product tipovi', link: '/02-modelovanje/01-product-tipovi' },
+      { text: '2. Sum tipovi', link: '/02-modelovanje/02-sum-tipovi' },
+      { text: '3. Discriminated unions', link: '/02-modelovanje/03-discriminated-unions' },
+      { text: '4. Pattern matching', link: '/02-modelovanje/04-pattern-matching' },
+      { text: '5. Option', link: '/02-modelovanje/05-option' },
+      { text: '6. Either', link: '/02-modelovanje/06-either' },
+      { text: '7. Neuspeh bez izuzetaka', link: '/02-modelovanje/07-neuspeh-bez-izuzetaka' }
+    ]
   },
   {
     text: 'Celina 3 — Algebra i matematički zakoni',

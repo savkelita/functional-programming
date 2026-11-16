@@ -22,9 +22,9 @@ features:
     link: /01-osnove/
     linkText: Započni
   - title: 2. Modelovanje podataka i grešaka
-    details: Tipovi proizvoda i sume, discriminated unions, pattern matching, Option i Either. (u pripremi)
+    details: Tipovi proizvoda i sume, discriminated unions, pattern matching, Option i Either.
     link: /02-modelovanje/
-    linkText: Pregled
+    linkText: Započni
   - title: 3. Algebra i zakoni
     details: Magma, Semigroup, Monoid, Eq i Ord — i zašto su algebarski zakoni važni. (u pripremi)
     link: /03-algebre/
@@ -47,4 +47,4 @@ Kurs kreće od osnova i postepeno vodi ka algebarskim strukturama, funktorima, m
 
 **Za koga je kurs?** Za programere koji poznaju osnove TypeScript-a (tipovi, funkcije, generici). Prethodno znanje funkcionalnog programiranja ili matematike nije potrebno — svaki pojam se objašnjava pre nego što se koristi.
 
-**Status.** Prva celina je završena. Ostale celine su u pripremi; do tada je njihovo gradivo dostupno u [originalnom prevodu](original/index.md), a raspored je opisan u [mapi sadržaja](mapa-sadrzaja.md).
+**Status.** Prve dve celine su završene. Ostale celine su u pripremi; do tada je njihovo gradivo dostupno u [originalnom prevodu](original/index.md), a raspored je opisan u [mapi sadržaja](mapa-sadrzaja.md).
